@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Jacquard_24, Barlow } from "next/font/google";
 import "../globals.css";
 import Link from "next/link";
-import Image from "next/image";
 
-const inter = Inter({ subsets: ["latin"] });
-const roboto = Roboto({ subsets: ["latin"], weight: ['300', '400', '500', '700', '900']});
-import Gitlab from "@/components/icons/gitlab";
-import Github from "@/components/icons/github";
+export const barlow = Barlow({ subsets: ["latin"], weight: ['300', '400', '500', '700', '900']});
+export const jacquard_24 = Jacquard_24({ subsets: ["latin"], weight: ['400']});
+import NavBar from '@/components/header'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,39 +19,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} flex flex-col flex-wrap gap-2 md:gap-10 sm:max-w-[640px] lg:max-w-[1024px] px-6 md:px-4 mx-auto`}>
-        <div className="flex flex-row justify-between items-center bg-slate-200">
-          <Link href={'/'} className="hover:bg-orange-400 inline-block w-10 h-10">
-            <div className="flex flex-col items-center justify-center w-full h-full">
-              <Image 
-                  src={'/ck-high-resolution-logo-black-transparent.png'} 
-                  height={40} 
-                  width={40}
-                  alt="logo"
-                />
-            </div>
-          </Link>
-          <div className="flex flex-row gap-2 items-center">
-            <Gitlab /> 
-            <Github />
-          </div>
-           
-        </div>
-        <div className="flex md:flex-row flex-wrap flex-col-reverse gap-10 lg:gap-20">
+      <body className={`${barlow.className} flex flex-col justify-between min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+        <NavBar />
+
+        <div className="flex flex-wrap sm:max-w-[640px] lg:max-w-[1024px] px-5 md:px-4 mx-auto md:flex-row flex-col-reverse gap-10 lg:gap-20 mb-auto">
           <div className="flex flex-col gap-10">
-            {/* <h4>
-              By <span className="font-extrabold text-xs">CHOL KUANY</span>
-            </h4> */}
             <ul className="flex flex-col items-end gap-2 cursor-pointer">
               <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
                 <Link href={'/contact'}>CONTACT</Link> 
               </li>
               <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
-                <Link href={'/portfolio'}> PORTFOLIO</Link> 
+                <Link href={'/portfolio'} className="text-inherit"> PORTFOLIO</Link> 
               </li>
             </ul>
           </div>
           {children}
+        </div>
+
+        <div className="max-w-[600px] w-full flex flex-wrap justify-around items-center gap-4 text-center py-12 mt-8 mx-auto border-t-[1px] border-sky-950 px-6">
+          <div>
+            <p className={`${jacquard_24.className} text-3xl`}>Chol</p>
+          </div>
+          <ul className="flex gap-2 list-disc list-inside marker:text-sky-900 text-sm">
+            <li>Twitter</li>
+            <li>Github</li>
+            <li>Gitlab</li>
+          </ul>
+
         </div>
       </body>
     </html>

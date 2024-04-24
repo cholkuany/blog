@@ -27,7 +27,7 @@ export type Post = {
   title: string,
   slug: {current: string},
   publishAt: Date,
-  excerpt: string,
+  except: string,
   content: any,
   tags: Array<Tag>
   authors: Array<Author>,
