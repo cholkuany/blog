@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Jacquard_24, Barlow } from "next/font/google";
+import { Jacquard_24 as Jacquard24, Barlow } from "next/font/google";
 import "../globals.css";
 import Link from "next/link";
 
-export const barlow = Barlow({ subsets: ["latin"], weight: ['300', '400', '500', '700', '900']});
-export const jacquard_24 = Jacquard_24({ subsets: ["latin"], weight: ['400']});
+const barlow = Barlow({ subsets: ["latin"], weight: ['300', '400', '500', '700', '900']});
+const jacquard = Jacquard24({ subsets: ["latin"], weight: ['400']});
 import NavBar from '@/components/header'
 
 export const metadata: Metadata = {
@@ -19,17 +19,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${barlow.className} flex flex-col justify-between min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+      <body className={`${barlow.className} flex flex-col justify-between min-h-screen bg-gray-50 dark:bg-gray-50 text-gray-900 dark:text-gray-900`}>
         <NavBar />
 
-        <div className="flex flex-wrap sm:max-w-[640px] lg:max-w-[1024px] px-5 md:px-4 mx-auto md:flex-row flex-col-reverse gap-10 lg:gap-20 mb-auto">
-          <div className="flex flex-col gap-10">
-            <ul className="flex flex-col items-end gap-2 cursor-pointer">
+        <div className="flex sm:max-w-[640px] lg:max-w-[1024px] px-5 md:px-4 mx-auto md:flex-row flex-col-reverse gap-10 lg:gap-20 mb-auto">
+          <div className="flex flex-col gap-10 sm:flex-row flex-wrap">
+            <ul className="flex md:flex-col sm:flex-row flex-wrap md:items-end gap-2 cursor-pointer">
               <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
-                <Link href={'/contact'}>CONTACT</Link> 
+                <Link href={'/portfolio'} className="text-inherit"> Jenkins</Link> 
               </li>
               <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
-                <Link href={'/portfolio'} className="text-inherit"> PORTFOLIO</Link> 
+                <Link href={'/portfolio'} className="text-inherit"> Docker</Link> 
+              </li>
+                            <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
+                <Link href={'/portfolio'} className="text-inherit">AWS</Link> 
+              </li>
+                            <li className="font-extrabold text-xs hover:underline underline-offset-4 hover:text-orange-400">
+                <Link href={'/portfolio'} className="text-inherit">Terraform</Link> 
               </li>
             </ul>
           </div>
@@ -38,7 +44,7 @@ export default function RootLayout({
 
         <div className="max-w-[600px] w-full flex flex-wrap justify-around items-center gap-4 text-center py-12 mt-8 mx-auto border-t-[1px] border-sky-950 px-6">
           <div>
-            <p className={`${jacquard_24.className} text-3xl`}>Chol</p>
+            <p className={`${jacquard.className} text-3xl`}>Chol</p>
           </div>
           <ul className="flex gap-2 list-disc list-inside marker:text-sky-900 text-sm">
             <li>Twitter</li>

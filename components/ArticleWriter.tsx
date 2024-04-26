@@ -14,8 +14,8 @@ function Author({date, name}:{date: string, name: string}) {
                     style={{objectFit: "cover"}}
                 />
             </div>
-            <div className='flex flex-col mt-4 text-gray-900 dark:text-gray-300'>
-                <div className='text-sm font-bold'>{name.toUpperCase()}</div>
+            <div className='flex flex-col mt-4 text-gray-800 dark:text-gray-800'>
+                <div className='text-sm font-bold'>{name}</div>
                 <Date dateString={date} />
             </div>
         </div>

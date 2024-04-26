@@ -1,4 +1,3 @@
-import { getAllPostIds, getPostData } from '../../../../lib/posts';
 import Head from 'next/head';
 import { client } from '@/sanity/lib/client';
 import { Post } from '@/lib/definitions';
@@ -6,7 +5,7 @@ import { urlForImage } from '@/sanity/lib/image';
 import Image from 'next/image';
 import {PortableText} from '@portabletext/react';
 import Author from '@/components/ArticleWriter';
-import { barlow } from '../../layout';
+
 import { fetchPosts } from '@/sanity/fetch/fetchPosts';
 import { queryPost } from '@/sanity/fetch/fetchPost';
 import Link from 'next/link';
@@ -23,11 +22,11 @@ export default async function Page({ params }: { params: {id: string}}) {
                     <title>{post.title}</title>
                 </Head>
                 <article className='flex flex-col flex-wrap gap-2'>
-                    <h1 className={`${barlow.className} text-4xl font-extrabold my-4 tracking-tight border-b-2 text-gray-900 dark:text-gray-100`}>{post.title}</h1>
+                    <h1 className={`text-4xl font-extrabold my-4 tracking-tight border-b-2 text-gray-950 dark:text-gray-950`}>{post.title}</h1>
 
                     <Author date={post.publishAt.toString()} name={post.authors[0].name}/>
 
-                    <div className={`${richTextStyles} ${barlow.className} text-lg text-gray-300`}>
+                    <div className={`${richTextStyles} text-lg text-gray-900 dark:text-gray-900`}>
                         <PortableText
                             value={post.content}
                             components={myPortableTextComponents}
@@ -38,14 +37,14 @@ export default async function Page({ params }: { params: {id: string}}) {
 
             <div className="mt-8">
                 <div className="flex flex-col">
-                    <h3 className='text-[#797575]'>Recent articles</h3>
+                    <h3 className='text-gray-950 dark:text-gray-950'>Recent articles</h3>
                     <ul className="flex flex-col flex-wrap gap-2 marker:text-sky-900">
                         {posts.map(({ _id, slug, title, publishAt }) => (
-                        <li className='list-inside flex flex-col' key={_id}>
-                            <Link href={`/post/${slug.current}`} className="font-bold text-sm text-gray-400 dark:text-gray-100 hover:underline underline-offset-4 hover:text-orange-400">
+                        <li className='list-inside flex flex-col text-gray-900 dark:text-gray-900' key={_id}>
+                            <Link href={`/post/${slug.current}`} className="text-inherit font-bold text-sm hover:underline underline-offset-4 hover:text-orange-400">
                                 {title}
                             </Link>
-                            <small className='text-[#797575]'>
+                            <small className='text-gray-700'>
                                 <Date dateString={publishAt.toString()} />
                             </small>
                         </li>
@@ -85,6 +84,11 @@ prose-li:list-disc
 prose-li:leading-7
 prose-p:leading-7
 prose-h1:text-3xl
+prose-strong:text-gray-700
+prose-strong:text-base
+list-disc 
+list-inside 
+marker:text-sky-900
 prose-li:ml-4
 `
 
