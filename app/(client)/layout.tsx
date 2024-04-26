@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Jacquard_24 as Jacquard24, Barlow } from "next/font/google";
+import { Barlow } from "next/font/google";
 import "../globals.css";
 import Link from "next/link";
 
 const barlow = Barlow({ subsets: ["latin"], weight: ['300', '400', '500', '700', '900']});
-const jacquard = Jacquard24({ subsets: ["latin"], weight: ['400']});
 import NavBar from '@/components/header'
 
 export const metadata: Metadata = {
@@ -44,7 +43,7 @@ export default function RootLayout({
 
         <div className="max-w-[600px] w-full flex flex-wrap justify-around items-center gap-4 text-center py-12 mt-8 mx-auto border-t-[1px] border-sky-950 px-6">
           <div>
-            <p className={`${jacquard.className} text-3xl`}>Chol</p>
+            <p className={`text-3xl`}>Chol</p>
           </div>
           <ul className="flex gap-2 list-disc list-inside marker:text-sky-900 text-sm">
             <li>Twitter</li>
