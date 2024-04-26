@@ -1,22 +1,20 @@
-import { getSortedPostsData } from "../../lib/posts";
 import Link from "next/link";
-import Date from '../../components/date';
+import Date from "@/components/date";
 import { fetchPosts } from "@/sanity/fetch/fetchPosts";
 
 export default async function Home() {
-  // const allPostsData = getSortedPostsData()
   const posts = await fetchPosts()
 
   return (
     <div className="flex flex-row sm:flex-col gap-8">
       <ul className="flex flex-col gap-6">
         {posts.map(({ _id, slug, title, publishAt, except }) => (
-          <li className='flex flex-col gap-2' key={_id}>
+          <li className="flex flex-col gap-2" key={_id}>
             <Link href={`/post/${slug.current}`} className="font-medium text-2xl text-gray-950 dark:text-gray-950 hover:underline underline-offset-4 hover:text-orange-400">
               {title}
             </Link>
             <p className="text-gray-900 dark:text-gray-900 text-sm">{except}</p>
-            <small className='text-[#797575]'>
+            <small className="text-gray-500">
               <Date dateString={publishAt.toString()} />
             </small>
           </li>
