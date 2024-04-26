@@ -24,7 +24,7 @@ export default async function Home() {
       <div className="flex flex-col gap-2">
         <h3 className="from-gray-950 font-bold">Recent Blogs</h3>
         <ul className="flex flex-col gap-2 list-inside underline underline-offset-1">
-          <li>Lorem Ipsum has been the industry's standard</li>
+          <li>Lorem Ipsum has been the industry standard</li>
           <li>It was popularised in the 1960s with the release of Letraset</li>
           <li>Contrary to popular belief, Lorem Ipsum</li>
           <li>Why do we use it?</li>
