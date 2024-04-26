@@ -6,11 +6,11 @@ export default async function Home() {
   const posts = await fetchPosts()
 
   return (
-    <div className="flex flex-row sm:flex-col gap-8">
+    <div className="flex flex-row flex-wrap gap-8">
       <ul className="flex flex-col gap-6">
         {posts.map(({ _id, slug, title, publishAt, except }) => (
           <li className="flex flex-col gap-2" key={_id}>
-            <Link href={`/post/${slug.current}`} className="font-medium text-2xl text-gray-950 dark:text-gray-950 hover:underline underline-offset-4 hover:text-orange-400">
+            <Link href={`/post/${slug.current}`} className="text-2xl text-gray-950 dark:text-gray-950 hover:underline underline-offset-4 hover:text-orange-400">
               {title}
             </Link>
             <p className="text-gray-900 dark:text-gray-900 text-sm">{except}</p>

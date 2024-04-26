@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { client } from '@/sanity/lib/client';
 import { Post } from '@/lib/definitions';
 import { urlForImage } from '@/sanity/lib/image';
@@ -18,15 +17,12 @@ export default async function Page({ params }: { params: {id: string}}) {
     return (
         <div className='prose prose-slate flex flex-col gap-10 sm:max-w-[640px] lg:max-w-[800px] mx-auto'>   
             <div className='prose flex flex-col'>
-                <Head>
-                    <title>{post.title}</title>
-                </Head>
                 <article className='flex flex-col flex-wrap gap-2'>
-                    <h1 className={`text-4xl font-extrabold my-4 tracking-tight border-b-2 text-gray-950 dark:text-gray-950`}>{post.title}</h1>
+                    <h1 className={`font-medium my-4 tracking-tight border-b-2 text-gray-950 dark:text-gray-950`}>{post.title}</h1>
 
                     <Author date={post.publishAt.toString()} name={post.authors[0].name}/>
 
-                    <div className={`${richTextStyles} text-lg text-gray-900 dark:text-gray-900`}>
+                    <div className={`${richTextStyles} font-normal text-base text-gray-950 dark:text-gray-950`}>
                         <PortableText
                             value={post.content}
                             components={myPortableTextComponents}
@@ -79,11 +75,10 @@ prose
 prose-gray
 dark:prose-invert
 prose-headings:my-5
-prose-headings:text-2xl
+prose-headings:text-lg
 prose-li:list-disc
 prose-li:leading-7
 prose-p:leading-7
-prose-h1:text-3xl
 prose-strong:text-gray-700
 prose-strong:text-base
 list-disc 
