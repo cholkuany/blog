@@ -14,7 +14,7 @@ function CloudinaryImage(
           src={secure_url}
           sizes="100vw"
           alt={filename}
-          className={`inline-block w-full ${height} ${objectFit} ${aspectRatio}`}
+          className={`inline-block w-full ${height} ${objectFit} ${aspectRatio} w-full`}
       /> 
     </div>
   )

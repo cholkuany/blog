@@ -29,7 +29,7 @@ const images = (await cloudinary.v2.search
                 filename={image.filename} 
                 height='h-full'
                 objectFit='object-cover' 
-                aspectRatio='aspect-auto md:aspect-[12/10]'
+                aspectRatio='aspect-square md:aspect-auto'
                />
             </Link>
           </div>

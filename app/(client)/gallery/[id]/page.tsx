@@ -16,14 +16,14 @@ export default async function Page({params }: {params: {id: string}}) {
                 X
             </Link>
             
-            <div className='relative flex flex-col justify-between md:flex-row mt-5 gap-5 shadow-sm shadow-slate-300 md:rounded-md overflow-hidden m-auto w-full h-full'>
+            <div className='relative flex flex-col justify-between md:flex-row gap-5 shadow-sm shadow-slate-300 md:rounded-md overflow-hidden m-auto w-full h-full'>
                 <div className='w-full flex-1 md:col-span-3 h-full'>
                     <CloudinaryImage 
                         secure_url={image.secure_url} 
                         filename={image.filename} 
                         height='h-full' 
                         objectFit='object-cover' 
-                        aspectRatio='aspect-[12/10] md:aspect-square'
+                        aspectRatio='aspect-auto md:aspect-square'
                     />
                 </div>
             </div>
