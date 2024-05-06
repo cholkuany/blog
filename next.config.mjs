@@ -7,6 +7,12 @@ const nextConfig = {
         hostname: "cdn.sanity.io",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

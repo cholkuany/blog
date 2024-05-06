@@ -33,3 +33,11 @@ export type Post = {
   authors: Array<Author>,
   _id: string,
 }
+
+export interface ImageType {
+  "asset_id": string,
+  "filename": string,
+  "created_at": string,
+  "uploaded_at": string,
+  "secure_url": string,
+}
